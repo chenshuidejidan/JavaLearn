@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="spring-beans-5.1.10.RELEASE (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/login_example/src/lib/spring-beans-5.1.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/login_example/src/lib/spring-core-5.1.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/login_example/src/lib/spring-jdbc-5.1.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/login_example/src/lib/spring-tx-5.1.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/login_example/src/lib/commons-logging-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

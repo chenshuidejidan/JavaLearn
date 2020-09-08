@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="commons-logging-1.2 (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/login_example/web/WEB-INF/commons-logging-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/login_example/web/WEB-INF/druid-1.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/login_example/web/WEB-INF/mysql-connector-java-5.1.49-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/login_example/web/WEB-INF/spring-beans-5.1.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/login_example/web/WEB-INF/spring-core-5.1.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/login_example/web/WEB-INF/spring-jdbc-5.1.10.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/login_example/web/WEB-INF/spring-tx-5.1.10.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

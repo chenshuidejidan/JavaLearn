@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DynamicTable</title>
+    <style>
+        #input {
+            margin-left: 39%;
+            margin-top: 10%;
+        }
+
+        table {
+            height: auto;
+            width: auto;
+            margin-left: 36%;
+            margin-top: 3%;
+            text-align: center;
+            border: black solid thick;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            height: auto;
+            width: 150px;
+            border: black solid thin;
+        }
+
+        input, select, button {
+            height: 30px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="input" class="input" name="input">
+    <input name="inputID" id="inputID" class="inputValue" placeholder="   请输入编号">
+    <input name="inputName" id="inputName" class="inputValue" placeholder="   请输入姓名">
+    <select id="inputGender" name="inputGender" class="inputGender">
+        <option value="Male">男</option>
+        <option value="Female">女</option>
+    </select>
+    <button id="addButton">添加</button>
+</div>
+<table>
+    <caption>学生信息表</caption>
+    <div id="tableHead" class="tableHead" name="tableHead">
+        <tr>
+            <th class="tableText" name="tableTextHead">编号</th>
+            <th class="tableText" name="tableTextHead">姓名</th>
+            <th class="tableText" name="tableTextHead">性别</th>
+            <th class="tableText" name="tableTextHead">操作</th>
+        </tr>
+    </div>
+    <tr>
+        <td>1</td>
+        <td>小明</td>
+        <td>男</td>
+        <td><a href="javascript:void(0)" onclick="del(this)">删除</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>小李</td>
+        <td>男</td>
+        <td><a href="javascript:void(0)" onclick="del(this)">删除</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>小蓝</td>
+        <td>女</td>
+        <td><a href="javascript:void(0)" onclick="del(this)">删除</td>
+    </tr>
+
+</table>
+
+
+<script>
+    var addButton = document.getElementById("addButton");
+    addButton.onclick = function () {
+        var inputID = document.getElementById("inputID").value;
+        var inputName = document.getElementById("inputName").value;
+        var inputGender = document.getElementById("inputGender").value;
+        inputGender = inputGender == "Male" ? "男" : "女";
+        var table = document.getElementsByTagName("table")[0];
+
+        //创建tr
+        var new_tr = document.createElement("tr");
+        table.appendChild(new_tr);
+
+        //创建td
+        var new_td_id = document.createElement("td");
+        //文本不能直接当作节点加入，创建文本节点
+        new_td_id.appendChild(document.createTextNode(inputID));
+
+        var new_td_name = document.createElement("td");
+        new_td_name.appendChild(document.createTextNode(inputName));
+
+        var new_td_gender = document.createElement("td");
+        new_td_gender.appendChild(document.createTextNode(inputGender));
+
+        var new_td_del_text = document.createTextNode("删除");
+        var new_td_del_a = document.createElement("a");
+        new_td_del_a.setAttribute("href", "javascript:void(0)")
+        new_ta_del_a.setAttribute("onclick", "del(this)")
+        new_td_del_a.appendChild(new_td_del_text);
+
+        new_tr.appendChild(new_td_id);
+        new_tr.appendChild(new_td_name);
+        new_tr.appendChild(new_td_gender);
+        new_tr.appendChild(new_td_del_a);
+    }
+
+    var del = function(obj){
+        var tr = obj.parentNode.parentNode;
+        var table = tr.parentNode;
+        table.removeChild(tr);
+    }
+
+</script>
+</body>
+</html>

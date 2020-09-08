@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DynamicTableHtmlDom</title>
+    <style>
+        #input {
+            margin-left: 39%;
+            margin-top: 10%;
+        }
+
+        table {
+            height: auto;
+            width: auto;
+            margin-left: 34%;
+            margin-top: 3%;
+            text-align: center;
+            border: black solid thick;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            height: auto;
+            width: 150px;
+            border: black solid thin;
+        }
+        .select{
+            width:50px;
+        }
+
+        input, select, button {
+            height: 30px;
+        }
+        #button{
+            margin-top: 20px;
+            margin-left: 34%;
+        }
+
+    </style>
+</head>
+<body>
+<div id="input" class="input" name="input">
+    <input name="inputID" id="inputID" class="inputValue" placeholder="   请输入编号">
+    <input name="inputName" id="inputName" class="inputValue" placeholder="   请输入姓名">
+    <select id="inputGender" name="inputGender" class="inputGender">
+        <option value="Male">男</option>
+        <option value="Female">女</option>
+    </select>
+    <button id="addButton">添加</button>
+</div>
+<table>
+    <caption>学生信息表</caption>
+    <div id="tableHead" class="tableHead" name="tableHead">
+        <tr>
+            <th class="select"><input type="checkbox" name="checkbox" class="checkbox"></th>
+            <th class="tableText" name="tableTextHead">编号</th>
+            <th class="tableText" name="tableTextHead">姓名</th>
+            <th class="tableText" name="tableTextHead">性别</th>
+            <th class="tableText" name="tableTextHead">操作</th>
+        </tr>
+    </div>
+    <tr>
+        <td class="select"><input type="checkbox" name="checkbox" class="checkbox"></td>
+        <td>1</td>
+        <td>小明</td>
+        <td>男</td>
+        <td><a href="javascript:void(0)" onclick="del(this)">删除</td>
+    </tr>
+    <tr>
+        <td class="select"><input type="checkbox" name="checkbox" class="checkbox"></td>
+        <td>2</td>
+        <td>小李</td>
+        <td>男</td>
+        <td><a href="javascript:void(0)" onclick="del(this)">删除</td>
+    </tr>
+    <tr>
+        <td class="select"><input type="checkbox" name="checkbox" class="checkbox"></td>
+        <td>3</td>
+        <td>小蓝</td>
+        <td>女</td>
+        <td><a href="javascript:void(0)" onclick="del(this)">删除</td>
+    </tr>
+
+</table>
+<div id="button">
+    <button id="selectAll">全选</button>
+    <button id="selectNone">取消</button>
+    <button id="selectReverse">反选</button>
+</div>
+
+<script>
+    //增加功能
+    var addButton = document.getElementById("addButton");
+    addButton.onclick = function () {
+        var inputID = document.getElementById("inputID").value;
+        var inputName = document.getElementById("inputName").value;
+        var inputGender = document.getElementById("inputGender").value;
+        inputGender = inputGender == "Male" ? "男" : "女";
+        var table = document.getElementsByTagName("table")[0];
+
+
+        table.innerHTML += "<tr><th class = 'select'><input type='checkbox' name='checkbox' class='checkbox'></th>" +
+            "        <td>" + inputID + "</td>\n" +
+            "        <td>" + inputName + "</td>\n" +
+            "        <td>" + inputGender + "</td>\n" +
+            "        <td><a href=\"javascript:void(0)\" onclick=\"del(this)\">删除</td>\n" +
+            "    </tr>";
+    }
+
+    //删除功能
+    var del = function (obj) {
+        var tr = obj.parentNode.parentNode;
+        var table = tr.parentNode;
+        table.removeChild(tr);
+    }
+
+    //浮动变色
+    var trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        trs[i].onmousemove = function () {
+            this.style.backgroundColor = "pink";
+        }
+
+        trs[i].onmouseout = function () {
+            this.style.backgroundColor = "white";
+        }
+
+    }
+
+    //全选
+    document.getElementById("selectAll").onclick=function(){
+        var checkboxes = document.getElementsByName("checkbox");
+        for(i=0;i<checkboxes.length;i++){
+            checkboxes[i].checked=true;
+        }
+    }
+
+    //全不选
+    document.getElementById("selectNone").onclick=function(){
+        var checkboxes = document.getElementsByName("checkbox");
+        for(i=0;i<checkboxes.length;i++){
+            checkboxes[i].checked=false;
+        }
+    }
+
+    //反选
+    document.getElementById("selectReverse").onclick=function(){
+        var checkboxes = document.getElementsByName("checkbox");
+        for(i=0;i<checkboxes.length;i++){
+            if(checkboxes[i].checked==true){
+                checkboxes[i].checked=false;
+            }
+            else{
+                checkboxes[i].checked=true;
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>

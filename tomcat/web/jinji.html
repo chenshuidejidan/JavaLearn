@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+    <link rel="stylesheet" href="./css/jinji.css">
+</head>
+<body>
+
+<div id="div1">
+
+
+    <div id="divlogo">
+        <table>
+            <td><img src="./picture/logo.jpg" width="100px" height="100px"></td>
+            <td><b>金鸡网</b></td>
+        </table>
+    </div>
+    <div id="logAndSign">
+        <form action="#" method="post">
+            <div id="signUpLogo">
+                新用户注册
+            </div>
+
+            <div id="loginNow">
+                已有账号，<a href="#">立即登录</a>
+            </div>
+
+            <div id="signUp">
+                <table cellspacing="0">
+                    <tr>
+                        <td class="textInTable"><label for="username">用户名</label></td>
+                        <td ><input class="inputInTable" placeholder="请输入账号" name="username" id="username">
+                            <span id="checkUsername"></span>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="textInTable"><label for="password">密码</label></td>
+                        <td><input class="inputInTable" type="password" placeholder="请输入账号" name="password" id="password">
+                            <span id="checkPassword"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="textInTable"><label for="email">Email</label></td>
+                        <td><input class="inputInTable" type="email" placeholder="请输入Email" name="email" id="email"></td>
+                    </tr>
+                    <tr>
+                        <td class="textInTable"><label for="name">姓名</label></td>
+                        <td><input class="inputInTable" placeholder="请输入真实姓名" name="name" id="name"></td>
+                    </tr>
+                    <tr>
+                        <td class="textInTable"><label for="phoneNumber">手机号</label></td>
+                        <td><input class="inputInTable" type="number" placeholder="请输入您的手机号" name="phoneNumber" id="phoneNumber"></td>
+                    </tr>
+                    <tr>
+                        <td class="textInTable">性别</td>
+                        <td class="inputInTable">
+                            <input type="radio" name="gender" value="male" checked>男
+                            <input type="radio" name="gender" value="female">女
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="textInTable"><label for="birthday">出生日期</label></td>
+                        <td><input class="inputInTable" type="date" name="birthday" id="birthday"></td>
+                    </tr>
+                    <tr>
+                        <td class="textInTable"><label for="verifyCode">验证码</label></td>
+                        <td><input class="inputVerifyInTable" name="verifyCode" id="verifyCode"><img id="code" src="/tomcat/demo8" align="center"/><a id="changeCode" href="javascript:void(0)" font-size="10px">看不清？换一张</a></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="signButtonOut"><input class="signButton" id="signButton" type="submit" value="注册"></td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    var check_name_flag = false;
+    var check_pw_flag = false;
+
+    //table提交
+    document.getElementsByTagName("form")[0].onsubmit=function(){
+        return check_name_flag&&check_pw_flag;
+    }
+
+
+    //校验用户名，只能含有字母数字和下划线
+    document.getElementById("username").onblur = function(){
+        var re = /(\w){6,12}/;
+        if(re.test(this.value)){
+            document.getElementById("checkUsername").className="rightCheck";
+            document.getElementById("checkUsername").innerHTML="用户名格式正确";
+            check_name_flag=true;
+        }
+        else{
+            document.getElementById("checkUsername").className="wrongCheck";
+            document.getElementById("checkUsername").innerHTML="用户名格式错误";
+            check_name_flag=false;
+        }
+    }
+
+    document.getElementById("password").onblur = function(){
+        var re = /(\w){6,12}/;
+        if(re.test(this.value)){
+            document.getElementById("checkPassword").className="rightCheck";
+            document.getElementById("checkPassword").innerHTML="密码格式正确";
+            check_pw_flag=true;
+        }
+        else{
+            document.getElementById("checkPassword").className="wrongCheck";
+            document.getElementById("checkPassword").innerHTML="密码格式正确";
+            check_pw_flag=false;
+        }
+    }
+
+    var image = document.getElementById("code")
+    image.onclick = function(){
+        var date = new Date().getTime();
+        image.src = "/tomcat/demo8?"+date;
+    }
+
+    var change = document.getElementById("changeCode")
+    change.onclick = function(){
+        var date = new Date().getTime();
+        image.src = "/tomcat/demo8?"+date;
+    }
+
+
+
+
+
+</script>
+
+</body>
+</html>

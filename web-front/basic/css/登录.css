@@ -1,0 +1,99 @@
+body{
+    background-image: url("../../../web_html/picture/登录/壁纸.jpg");
+}
+*{
+    margin:0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#div1{
+    width:100%;
+    height:1000px;
+
+    /*border: #80000c solid medium;*/
+
+}
+
+#divlogo{
+    font-size:50px;
+    color:red;
+}
+
+#logAndSign{
+    /*border: #868770 solid 5px;*/
+    width:600px;
+    height: 500px;
+    margin:auto;
+    margin-top:40px;
+
+    background: #FFFFFF;
+    opacity:0.75;
+
+}
+#signUpLogo{
+    width:130px;
+    font-size: large;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #ffaf00;
+}
+
+
+#signUp{
+
+    width:400px;
+    margin:auto;
+    float:left
+}
+
+#loginNow{
+    margin-right: 10px;
+    margin-top: 10px;
+    float: right;
+ }
+
+.textInTable{
+    width:100px;
+    text-align: right;
+    height:45px;
+    padding-right:30px ;
+}
+
+.inputInTable{
+    padding-left: 10px;
+    height: 30px;
+}
+
+.inputVerifyInTable{
+    height: 30px;
+    width:90px;
+}
+
+.signButton{
+    width:80px;
+    height:30px;
+    background: #ffaf00;
+    border: #ffaf00;
+    margin-top: 30px;
+}
+
+.signButtonOut{
+    width: 260px;
+    padding-left: 150px;
+    /*margin-left: 500px;*/
+}
+
+
+.rightCheck,.wrongCheck{
+    font-size: 10px;
+}
+
+.rightCheck{
+    color:green;
+}
+
+.wrongCheck{
+    color:red;
+}

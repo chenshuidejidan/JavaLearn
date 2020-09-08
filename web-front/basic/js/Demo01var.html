@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = 1;
+    document.write(a + "---" + typeof (a) + '<br>');
+    a = NaN;
+    document.write(a + "---" + typeof (a) + '<br>');
+    a = "123";
+    document.write(a + "---" + typeof (a) + "<br>");
+    a = null;
+    document.write(a + "---" + typeof (a) + "<br>");
+    a = undefined;
+    document.write(a + "---" + typeof (a) + "<br>");
+
+    document.write("========================"+ "<br>");
+    a = +"123";
+    document.write(a + "---" + typeof (a) + "<br>");
+    a = +"qwq1";
+    document.write(a + "---" + typeof (a) + "<br>");
+
+    document.write("========================"+ "<br>");
+    a = "1"==1;
+    document.write(a + "---" + typeof (a) + "<br>");
+    a = "1"===1;
+    document.write(a + "---" + typeof (a) + "<br>");
+    a = "a">1;
+    document.write(a + "---" + typeof (a) + "<br>");
+    a = "a"<1;
+    document.write(a + "---" + typeof (a) + "<br>");
+
+    document.write("========================"+ "<br>");
+    a = !!-3;
+    document.write(a + "---" + typeof (a) + "<br>");
+
+    a = !!"0";
+    document.write(a + "---" + typeof (a) + "<br>");
+
+    a = !!new Date();
+    document.write(a + "---" + typeof (a) + "<br>");
+
+</script>
+</body>
+</html>

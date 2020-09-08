@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function add(a,b){
+        return a+b;
+    }
+
+    var plus = function(a,b){
+        return a-b;
+    }
+    document.write(add(1,"2kajskj")+"<br>");
+    document.write(plus(9,"2"));
+
+    document.write("====================="+"<br>");
+    var arr1 = new Array(1,2,"abc",true);
+    var arr2 = new Array(5);
+    var arr3 = [1,"abc",true];
+    document.write(arr1+"<br>");
+    document.write(arr2+"<br>");
+    document.write(arr3+"<br>");
+
+    document.write(arr1[10]+"<br>");
+    document.write(arr1.length+"<br>");
+    arr1[10]=false;
+    document.write(arr1[10]+"<br>");
+    document.write(arr1.length+"<br>");
+    document.write("====================="+"<br>");
+
+
+    var date = new Date();
+    document.write(date.toLocaleString()+"<br>");
+
+    document.write(date.getTime()+"<br>");
+    document.write("====================++++++++++++++++++++++"+"<br>");
+    document.write(Math.PI+"<br>");
+
+    var re1 = new RegExp("^[a,b](1)*");
+    var re2 = /1*\w$/;
+    document.write(re1.test("b")+"<br>");
+    document.write(re2.test("b")+"<br>");
+
+    document.write("====================++++++++++++++++++++++"+"<br>");
+    字符串 = encodeURI("滴滴")
+    document.write( 字符串 + "<br>");
+
+    s1 = encodeURI("http://www.baidu.com");
+    s2 = encodeURIComponent("http://www.baidu.com");
+    document.write( s1 + "<br>");
+    document.write( s2 + "<br>");
+
+
+</script>
+</body>
+</html>
