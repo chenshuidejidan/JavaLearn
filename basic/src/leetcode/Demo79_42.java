@@ -1,6 +1,5 @@
 package leetcode;
 
-import com.mysql.jdbc.CacheAdapter;
 
 public class Demo79_42 {
     private char[][] board;

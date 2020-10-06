@@ -6,16 +6,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class DemoTest {
-    public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
-        Class[] classes = Integer.class.getDeclaredClasses(); //1
-        Class cache = classes[0];
-        Field myCache = cache.getDeclaredField("cache"); //2
-        myCache.setAccessible(true);//3
-        Integer[] newCache = (Integer[]) myCache.get(cache); //4
-        newCache[132] = newCache[133]; //5
-
-        int a = 2;
-        int b = a + a;
-        System.out.printf("%d + %d = %d", a, a, b); //
+    public static void main(String[] args) {
+        int n = 3;
+        int nthBit = 1 << n;
+        for (int i = 0; i < (int) Math.pow(2, n); ++i) {
+            // generate bitmask, from 0..00 to 1..11
+            int a = i|nthBit;
+            String bitmask1 = Integer.toBinaryString(a);
+            String bitmask = bitmask1.substring(1);
+            System.out.println(bitmask);
+        }
     }
 }

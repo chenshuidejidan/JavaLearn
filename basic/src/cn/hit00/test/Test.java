@@ -5,30 +5,17 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 public class Test {
-    public int lengthOfLongestSubstring(String s) {
-        if(s==null||s.length()==0) return 0;
-        int right = 0;
-        int left = 0;
-        HashMap<Character, Integer> map = new HashMap<>();
-        int maxLength = 0;
-        while(right<s.length()){
-            if(map.containsKey(s.charAt(right))){
-                //left变为离right处最近的重复字母+1
-                //max保证left不会回退：如abba 保证right到达第二个a时left不会回退到第一个a处
-                left = Math.max(left,map.get(s.charAt(right))+1);
-            }
+    public static void main(String[] aa) {
+        String s1 = new String("ab")+"cc"; //常量池中只有ab 和 cc
+        String s2 = s1.intern();    //常量池中不存在abcc，将堆中String对象的引用地址添加到常量池中
+        System.out.println(s1 == s2);  //true
 
-            map.put(s.charAt(right), right);
-            maxLength = Math.max(maxLength, right-left+1);
-            right++;
-        }
-        return maxLength;
+        String s3 = "abcc";            //常量池中存在abcc了，是s1的引用地址
+        System.out.println(s2 == s3);  //true
+        System.out.println(s1 == s3);  //true
+
+        String s4 = new String("abcc");
+        String s5 = s4.intern();       //s5还是s1的引用地址
+        System.out.println(s4==s5);    //false
     }
-
-
-    public static void main(String[] args) {
-        int lengthOfLongestSubstring = new Test().lengthOfLongestSubstring("abba");
-        System.out.println(lengthOfLongestSubstring);
-    }
-
 }
