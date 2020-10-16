@@ -2,7 +2,7 @@ package leetcode.sort;
 
 import java.util.Arrays;
 
-public class Demo4_Shell {
+public class Demo5_Shell {
     public static void shellSort(int[] arr){
         int gap = (int)Math.floor(Math.sqrt(arr.length));
         while(gap>=1){

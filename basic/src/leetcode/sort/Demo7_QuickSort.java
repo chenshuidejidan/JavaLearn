@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class Demo6_QuickSort {
+public class Demo7_QuickSort {
     public static void quickSort(int[] arr){
         quickSort(arr, 0, arr.length-1);
     }

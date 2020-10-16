@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-public class Demo5_MergeSort {
+public class Demo6_MergeSort {
     public static void mergeSort(int[] arr){
         int[] temp = new int[arr.length];   //排序前建立临时数组，避免递归中频繁开辟空间
         mergeSort(arr, 0, arr.length-1, temp);
