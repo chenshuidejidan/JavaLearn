@@ -1,4 +1,4 @@
-package leetcode.test;
+package test;
 
 class ThisEscapeSon extends ThisEscape {
     private final String name;
