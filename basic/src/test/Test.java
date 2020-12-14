@@ -1,22 +1,19 @@
 package test;
 
+import com.sun.media.sound.SoftTuning;
+
+import java.lang.ref.SoftReference;
+import java.sql.Time;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Objects;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Test {
     public static void main(String[] args) {
-        long totalMemory = Runtime.getRuntime().totalMemory();
-        long maxMemory = Runtime.getRuntime().maxMemory();
-        System.out.println("-Xms:"+totalMemory/(1<<20)+"MB");
-        System.out.println("-Xmx:"+maxMemory/(1<<20)+"MB");
-        try {
-            Thread.sleep(1000000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
     }
 }
-
-
-
-
-
-
 
