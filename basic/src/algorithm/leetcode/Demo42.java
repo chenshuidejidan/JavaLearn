@@ -20,25 +20,17 @@ public class Demo42 {
     }
 
     public int trap(int[] height) {
-        int res=0, count=0;
+        if(height==null || height.length<3)    return 0;
+        int res = 0;
         Deque<Integer> stack = new ArrayDeque<>();
-        for(int i  = 0 ; i<height.length; i++){
-            if(stack.isEmpty()||height[i]<height[stack.peek()]){
-                stack.push(i);
-            } else{//高于栈顶，开始统计
-                while(height[i]>=height[stack.peek()]){
-                    int index = stack.pop();
-                    if(stack.isEmpty()){
-                        break;
-                    }
-                    count+=height[index]*(index-stack.peek());
-                }
-                if(!stack.isEmpty()){
-                    res+=(height[i]*(i-stack.peek()+1)-count);
-                }
-                stack.push(i);
-                count = 0;
+        for(int i = 0; i<height.length; i++){
+            while(!stack.isEmpty() && height[i]>=height[stack.peek()]){
+                int nowHeight  = height[stack.pop()];
+                if(stack.isEmpty()) break;
+                int minHeight = Math.min(height[stack.peek()],height[i]);
+                res+=(minHeight-nowHeight)*(i-stack.peek()-1);
             }
+            stack.push(i);
         }
         return res;
     }

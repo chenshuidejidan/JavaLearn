@@ -1,6 +1,9 @@
 package algorithm.leetcode;
 
+import org.junit.Test;
+
 import java.util.HashMap;
+import java.util.Map;
 
 public class Demo3_3 {
     public int lengthOfLongestSubstring(String s) {
@@ -24,18 +27,28 @@ public class Demo3_3 {
         }
         return maxLength;
     }
-    //     //用链表实现队列，队列是先进先出的
-    //     Queue<Character> queue = new LinkedList<>();
-    //     int res = 0;
-    //     for (char c : s.toCharArray()) {
-    //         while (queue.contains(c)) {
-    //             //如果有重复的，队头出队
-    //             queue.poll();
-    //         }
-    //         //添加到队尾
-    //         queue.add(c);
-    //         res = Math.max(res, queue.size());
-    //     }
-    //     return res;
-    // }
+
+    public int lengthOfLongestSubstring2(String s) {
+        if(s.length()==0) return 0;
+        int res = 1;
+        int left = 0, right = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        while(right<s.length()){
+            int posChar = map.getOrDefault(s.charAt(right), -1);
+            if(posChar<left){
+                map.put(s.charAt(right), right);
+                right++;
+            }else{
+                res = Math.max(res, right-left);
+                left = posChar+1;
+                map.put(s.charAt(right), right);
+            }
+        }
+        return Math.max(res, right-left);
+    }
+    @Test
+    public void test(){
+        System.out.println(lengthOfLongestSubstring2("aab"));
+    }
+
 }

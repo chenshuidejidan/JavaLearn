@@ -1,5 +1,7 @@
 package algorithm.leetcode;
 
+import org.junit.Test;
+
 /**
  * @Auther: c
  * @Date: 2020/12/5 - 12 - 05 - 16:28
@@ -23,17 +25,18 @@ public class Demo440 {
         return cur;
     }
 
-    public int countNodes(int n, int num1, int num2){
+    public int countNodes(int n, long num1, long num2){
         int count = 0;
         while(num1<=n){
-            count = count+Math.min(num2, n+1)-num1;
+            count = (int)(count+Math.min(num2, n+1)-num1);
             num1*=10;
             num2*=10;
         }
         return count;
     }
 
-    public static void main(String[] args) {
-        System.out.println(new Demo440().findKthNumber(10, 3));
+    @Test
+    public void test(){
+        System.out.println(findKthNumber(10, 3));
     }
 }

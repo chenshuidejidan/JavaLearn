@@ -39,9 +39,35 @@ public class Demo76 {
     }
     @Test
     public void test(){
-        String s = "ADOBECODEBANC";
+        String s = "a";
 
-        String t = "ABC";
-        System.out.println(minWindow(s, t));
+        String t = "A";
+        System.out.println(minWindow2(s, t));
+    }
+
+    public String minWindow2(String s, String t) {
+        int left = 0, right = 0, resl = 0, resr = -1;
+        Map<Character, Integer> map = new HashMap<>();
+        for (char c : t.toCharArray()) map.put(c, map.getOrDefault(c, 0) + 1);
+        int total = map.size();
+        char[] chs = s.toCharArray();
+        for (right = 0; right < chs.length; right++) {
+            while (right < chs.length && !map.containsKey(chs[right])) right++;
+            if (right >= chs.length) break;
+
+            if (map.get(chs[right]) == 1) total--;
+            map.put(chs[right], map.get(chs[right]) - 1);
+
+            while (left <= right && (!map.containsKey(chs[left]) || map.get(chs[left]) < 0)) {
+                if (map.containsKey(chs[left])) map.put(chs[left], map.get(chs[left]) + 1);
+                left++;
+            }
+
+            if (total == 0 && (resr == -1 || resr - resl > right - left)) {
+                resl = left;
+                resr = right;
+            }
+        }
+        return resr == -1 ? "" : s.substring(resl, resr + 1);
     }
 }
