@@ -17,6 +17,27 @@ public class Demo7_QuickSort {
         quickSort(arr, pivot+1, right);
     }
 
+    private static void quickSortSmallRec(int[] arr){
+        quickSortSmallRec(arr, 0, arr.length-1);
+    }
+
+    private static void quickSortSmallRec(int[] arr, int head, int tail){
+        while(head<tail){
+            int l = head, r = tail, temp = arr[(head+tail)/2];
+            do{
+                while(l<=r && arr[l]<temp) l++;
+                while(l<=r && arr[r]>temp) r--;
+                if(l<=r){
+                    swap(arr, l, r);
+                    l++; r--;
+                }
+            }while(l<=r);
+            quickSortSmallRec(arr, head, r);
+            head = l;
+        }
+    }
+
+
     //最简单的划分方式
     private static int partition(int[] arr, int left, int right) {
         int oriLeft = left;
@@ -52,11 +73,44 @@ public class Demo7_QuickSort {
         arr[right] = temp;
     }
 
+    public static void div3QuickSort(int[] arr){
+        div3QuickSort(arr, 0, arr.length-1);
+    }
+    private static void div3QuickSort(int[] arr, int left, int right) {
+        if(left>=right) return;
+        int pivot = arr[left];
+        int i = left, j = right, k=left+1;
+        while(k<=j){
+            if(arr[k]<pivot)  swap(arr, i++, k++);
+            else if(arr[k]>pivot)   swap(arr, j--, k);
+            else k++;
+        }
+        div3QuickSort(arr, left, i-1);
+        div3QuickSort(arr, j+1, right);
+    }
+
+//    public static void main(String[] args) {
+//        boolean flag = true;
+//        for (int times = 0; times < 1000; times++) {
+//            int[] arr = RandomArrayOfLowRange.generateRandomArray();
+//            int[] arr2 = new int[arr.length];
+//            System.arraycopy(arr, 0, arr2, 0, arr.length);
+//            quickSortSmallRec(arr);
+//            Arrays.sort(arr2);
+//            if(!Arrays.toString(arr).equals(Arrays.toString(arr2))){
+//                flag = false;
+//                break;
+//            }
+//        }
+//        System.out.println(flag);
+//
+//    }
+
+
     public static void main(String[] args) {
         long time = new Date().getTime();
-        for (int times = 0; times < 10000; times++) {
+        for (int times = 0; times < 1000; times++) {
             int[] arr = RandomArrayOfLowRange.generateRandomArray();
-//            quickSort(arr);
             Arrays.sort(arr);
         }
         long time1 = new Date().getTime();
