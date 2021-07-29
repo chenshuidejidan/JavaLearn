@@ -9,7 +9,6 @@
       <module fileurl="file://$PROJECT_DIR$/login_example/login_example.iml" filepath="$PROJECT_DIR$/login_example/login_example.iml" />
       <module fileurl="file://$PROJECT_DIR$/tomcat/tomcat.iml" filepath="$PROJECT_DIR$/tomcat/tomcat.iml" />
       <module fileurl="file://$PROJECT_DIR$/userInfo/userInfo.iml" filepath="$PROJECT_DIR$/userInfo/userInfo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/web-front/web-front.iml" filepath="$PROJECT_DIR$/web-front/web-front.iml" />
     </modules>
   </component>
 </project>
